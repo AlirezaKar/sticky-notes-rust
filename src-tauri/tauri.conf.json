@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Sticky Notes",
+  "version": "1.0.0",
+  "identifier": "com.stickynotes.app",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:1420",
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Sticky Notes",
+        "width": 1100,
+        "height": 700,
+        "minWidth": 800,
+        "minHeight": 500,
+        "resizable": true,
+        "decorations": true,
+        "transparent": false,
+        "visible": false,
+        "center": true
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; img-src 'self' data: asset: http://asset.localhost; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self' data:; connect-src 'self' http://localhost:1420 ws://localhost:1420"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.ico"
+    ],
+    "category": "Productivity",
+    "shortDescription": "Fast Obsidian-style sticky notes for Windows",
+    "longDescription": "Multiple floating notes with live Markdown, colors, tray, autostart, hotkeys, search, versions, reminders and export. Notes are plain .md files on disk.",
+    "windows": {
+      "nsis": { "installMode": "currentUser" },
+      "wix": { "upgradeCode": "7A1B2C3D-4E5F-4A6B-8C9D-0E1F2A3B4C5D" }
+    }
+  }
+}
